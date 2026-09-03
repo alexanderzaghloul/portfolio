@@ -1,2 +1,67 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Gematrix — See the Number Inside the Word</title><style>:root{--bg:#0a0b0f;--panel:#12141b;--text:#f5f7fb;--muted:#9aa3b2;--line:#242936;--accent:#d7ff5f;--accent2:#8de1ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;padding:28px}.wrap{width:min(980px,100%)}.eyebrow{color:var(--accent);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;margin-bottom:12px}h1{font-size:clamp(36px,7vw,74px);line-height:.95;margin:0 0 16px;letter-spacing:-.04em}.sub{color:var(--muted);font-size:17px;max-width:700px;line-height:1.55;margin-bottom:28px}.card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:24px}.input-row{display:grid;grid-template-columns:1fr auto;gap:12px}input{width:100%;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:#0e1016;color:var(--text);font-size:28px}button{border:0;border-radius:16px;padding:0 22px;background:var(--accent);font-weight:900;font-size:16px;cursor:pointer}.presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chip{background:#171a22;color:#dfe4ec;border:1px solid var(--line);padding:9px 12px;border-radius:999px;font-size:14px;cursor:pointer}.result{margin-top:24px;display:grid;grid-template-columns:220px 1fr;gap:18px}.score,.breakdown{border:1px solid var(--line);border-radius:20px;padding:22px;background:#0e1016}.score .label{color:var(--muted);font-size:13px;text-transform:uppercase}.score .number{font-size:76px;font-weight:950;line-height:1;margin:8px 0;color:var(--accent)}.score .word{font-size:24px;font-weight:800}.letters{display:flex;gap:10px;flex-wrap:wrap}.letter{min-width:74px;padding:13px 12px;border-radius:14px;background:#161923;border:1px solid var(--line);text-align:center}.letter .heb{font-size:28px;font-weight:900}.letter .val{font-size:14px;color:var(--accent2)}.formula{margin-top:15px}.note{margin-top:18px;color:var(--muted);font-size:13px}.footer{margin-top:14px;color:#697386;font-size:12px;text-align:center}@media(max-width:700px){.input-row,.result{grid-template-columns:1fr}button{padding:16px}}</style></head><body><div class="wrap"><div class="eyebrow">A tiny code demo</div><h1>There’s a number<br>inside every word.</h1><div class="sub">Standard Hebrew gematria assigns a numerical value to each Hebrew letter. Type a Hebrew word and watch the number emerge.</div><div class="card"><div class="input-row"><input id="word" value="אקסל" dir="rtl"/><button id="calc">Calculate</button></div><div class="presets"><span class="chip" data-word="אקסל">EXCEL → אקסל</span><span class="chip" data-word="חכמה">חכמה · wisdom</span><span class="chip" data-word="חיים">חיים · life</span><span class="chip" data-word="אמת">אמת · truth</span></div><div class="result"><div class="score"><div class="label">Gematria value</div><div class="number" id="total">191</div><div class="word" id="displayWord" dir="rtl">אקסל</div></div><div class="breakdown"><h2>Letter-by-letter</h2><div class="letters" id="letters"></div><div class="formula" id="formula"></div></div></div><div class="note">This uses standard (Mispar Hechrechi) gematria. The program calculates values only; any interpretation is left to the person looking at the result.</div></div><div class="footer">Built as a demonstration of curiosity, code, and Jewish tradition.</div></div><script>const values={'א':1,'ב':2,'ג':3,'ד':4,'ה':5,'ו':6,'ז':7,'ח':8,'ט':9,'י':10,'כ':20,'ך':20,'ל':30,'מ':40,'ם':40,'נ':50,'ן':50,'ס':60,'ע':70,'פ':80,'ף':80,'צ':90,'ץ':90,'ק':100,'ר':200,'ש':300,'ת':400};function calculate(word){const chars=[...word].filter(ch=>values[ch]!==undefined),total=chars.reduce((s,ch)=>s+values[ch],0);document.getElementById('total').textContent=total;document.getElementById('displayWord').textContent=chars.join('')||'—';const letters=document.getElementById('letters');letters.innerHTML='';chars.forEach(ch=>{const box=document.createElement('div');box.className='letter';box.innerHTML=`<div class="heb">${ch}</div><div class="val">${values[ch]}</div>`;letters.appendChild(box)});document.getElementById('formula').textContent=chars.length?chars.map(ch=>values[ch]).join(' + ')+' = '+total:'Enter a Hebrew word.'}document.getElementById('calc').onclick=()=>calculate(document.getElementById('word').value.trim());document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.getElementById('word').value=c.dataset.word;calculate(c.dataset.word)});calculate(document.getElementById('word').value);</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#142b47">
+  <meta name="description" content="Explore Hebrew gematria, one letter at a time. A personal project by Alexander Zaghloul connecting Jewish heritage, curiosity, and technology.">
+  <meta property="og:title" content="Gematrix — Find the connection">
+  <meta property="og:description" content="Jewish heritage meets a curious mind. Explore the numerical values of Hebrew words with Gematrix.">
+  <title>Gematrix — Find the connection</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#explorer">Skip to calculator</a>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Gematrix home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 4h10v10H4zm14 0h10v10H18zM4 18h10v10H4z" fill="currentColor"/><path d="m23 17 6 6-6 6-6-6z" fill="#4d7faf"/></svg><span>gematrix<span class="brand-dot">.</span></span></a>
+    <nav aria-label="Main navigation"><a href="#explorer" class="nav-explore">The explorer</a><a href="#story">The story</a><button id="method-open" class="nav-method">How it works <span aria-hidden="true">↗</span></button></nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow"><span class="tiny-cross" aria-hidden="true">✳</span> HERITAGE, MEET CURIOSITY</p><h1 id="page-title">Find the <em>connection.</em></h1><p class="intro-copy">An ancient alphabet. A new way to explore what connects us.</p></div>
+      <div class="intro-note"><span lang="he" dir="rtl">אות · מספר · משמעות</span><p>Letter · Number · Meaning</p></div>
+    </section>
+
+    <section id="explorer" class="explorer" aria-label="Gematria calculator">
+      <div class="workbench">
+        <div class="panel-heading"><h2>The word explorer</h2><span class="panel-index">01 / DISCOVER</span></div>
+        <fieldset class="mode-selector"><legend class="sr-only">Choose alphabet</legend><label><input type="radio" name="mode" value="hebrew" checked><span><b lang="he">א</b> Hebrew gematria</span></label><label><input type="radio" name="mode" value="english"><span><b>A</b> English A1–Z26</span></label></fieldset>
+        <div class="input-heading"><label for="word-input" id="input-label">Enter a Hebrew word or phrase</label><button type="button" id="clear-input" class="text-button">Clear</button></div>
+        <div class="word-input-wrap"><input id="word-input" type="text" value="אהבה" dir="auto" lang="he" maxlength="100" autocomplete="off" spellcheck="false" aria-describedby="word-context input-note"><span class="input-symbol" aria-hidden="true">↵</span></div>
+        <div id="word-context" class="word-context">Ahava <span>·</span> Love</div>
+        <p id="input-note" class="input-note">Try a word below, or open the Hebrew keyboard.</p>
+        <div id="presets" class="presets" aria-label="Example words"></div>
+        <details id="keyboard-details" class="keyboard-details"><summary><svg width="17" height="15" viewBox="0 0 20 16" fill="none" aria-hidden="true"><rect x="1" y="1" width="18" height="14" rx="3" stroke="currentColor"/><path d="M4 5h2m3 0h2m3 0h2M4 8h2m3 0h2m3 0h2M6 11h8" stroke="currentColor"/></svg> Hebrew keyboard <span class="chevron" aria-hidden="true">⌄</span></summary><div id="keyboard" class="keyboard" dir="rtl" aria-label="Hebrew letters"></div><div class="keyboard-actions"><button id="keyboard-space" type="button">Space</button><button id="keyboard-backspace" type="button">Delete last character</button></div></details>
+        <div class="breakdown-heading"><h3>Letter by letter</h3><span id="letter-count">4 letters</span></div>
+        <div id="letter-tiles" class="letter-tiles" dir="rtl"></div>
+        <p id="equation" class="equation" dir="ltr">1 + 5 + 2 + 5 = 13</p>
+      </div>
+
+      <aside class="result-panel" aria-label="Calculated result">
+        <div class="result-top"><span id="result-method">STANDARD GEMATRIA</span><span class="result-icon" aria-hidden="true">Σ</span></div>
+        <div class="number-visual"><svg id="value-ring" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="124" fill="none" stroke="#ffffff12" stroke-width="1"/><circle cx="150" cy="150" r="110" fill="none" stroke="#ffffff0c" stroke-width="7"/><g id="ring-segments" transform="rotate(-90 150 150)"></g></svg><div class="number-center"><span class="number-caption">THE VALUE WITHIN</span><output id="total-value" for="word-input" aria-live="polite" aria-atomic="true">13</output><span class="result-word" id="result-word" dir="auto" lang="he">אהבה</span></div></div>
+        <div class="result-bottom"><div><span>ALPHABET</span><strong id="alphabet-name">Hebrew</strong></div><div><span>METHOD</span><strong id="method-name">Standard · 1–400</strong></div></div>
+        <p class="result-footnote" id="result-footnote">Each letter keeps its value. Together, they tell a different story.</p>
+      </aside>
+    </section>
+
+    <section class="connection-section" aria-labelledby="connection-heading">
+      <div class="section-heading"><h2 id="connection-heading">A connection worth exploring</h2><span class="panel-index">02 / CONNECT</span></div>
+      <div id="connection-card" class="connection-card" aria-live="polite"></div>
+    </section>
+
+    <section id="story" class="story-section" aria-labelledby="story-title">
+      <div class="story-heading"><p class="eyebrow">THE QUESTION BEHIND THE PROJECT</p><h2 id="story-title">Some rabbit holes<br>lead <em>back home.</em></h2><div class="creator"><span class="avatar" aria-hidden="true">AZ</span><div><strong>Alexander Zaghloul</strong><span>Creator of Gematrix · DePaul University</span></div></div><nav class="creator-links" aria-label="Alexander's profiles and project"><a href="https://github.com/alexanderzaghloul/portfolio/tree/main/gematrix" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/alexander-zaghloul" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></nav></div>
+      <div class="story-copy"><p>Gematrix started with my Jewish heritage and a question: what happens when I explore an old tradition through something else I love—technology?</p><p>I study philosophy, work in finance, and build things. I don’t really see those as separate parts of myself. This is a small space to follow that curiosity, one word at a time.</p><p class="story-closing">I’ll bring my rabbit holes.<br><em>I want to learn yours.</em></p><span class="story-context">A personal project for my Excel application</span></div>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="#">gematrix.</a><span>Rooted in tradition. Open to discovery.</span><button class="text-button" id="footer-method">About the calculations <span aria-hidden="true">↗</span></button></footer>
+
+  <dialog id="method-dialog" aria-labelledby="method-title"><div class="dialog-inner"><button id="method-close" class="close-button" aria-label="Close explanation">×</button><p class="eyebrow">A LITTLE CONTEXT</p><h2 id="method-title">Letters become numbers.</h2><p>Gematria is a Jewish interpretive tradition that explores the numerical values of Hebrew letters and words. This explorer makes the arithmetic visible.</p><h3>Hebrew · Standard value</h3><p>א–ט are 1–9, י–צ are 10–90 in tens, and ק–ת are 100–400 in hundreds. Final forms ך, ם, ן, ף, ץ keep the values of כ, מ, נ, פ, צ. Vowel marks, punctuation, spaces, and digits do not contribute.</p><div id="alphabet-table" class="alphabet-table" dir="rtl"></div><h3>English · A1–Z26</h3><p>A = 1, B = 2, through Z = 26. This is a separate English letter-number exercise, not traditional Hebrew gematria. For example, EXCEL adds up to 49.</p><h3>What does a connection mean?</h3><p>The examples come from a small, curated word list, not a full Hebrew dictionary. Equal totals are invitations to explore; they do not prove that two words have the same meaning. Hebrew spellings and transliterations can change a result.</p><p class="source-note">Read more: <a href="https://www.chabad.org/library/article_cdo/aid/5541252/jewish/What-Is-Gematria.htm" target="_blank" rel="noopener noreferrer">What Is Gematria? · Chabad.org ↗</a></p><p class="independence-note">Gematrix is an independent personal project by Alexander Zaghloul, not an official Excel program website.</p></div></dialog>
+  <noscript><div class="noscript">Enable JavaScript to type words and explore live calculations.</div></noscript>
+</body>
+</html>
