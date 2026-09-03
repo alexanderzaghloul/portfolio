@@ -1,11 +1,20 @@
 # Alexander Zaghloul — Project Portfolio
 
-A collection of product, data, finance, and software projects built around technology, analytics, privacy, and decision-making.
+Experimental software at the intersection of **technology, finance, data, privacy, and decision science**.
 
 ## Featured Projects
 
 ### DataBearer
-Personal-data portfolio prototype that applies financial concepts to digital privacy. Includes modeled data value, portfolio allocation, exposure analysis, controls, and a Consent Ledger.
+Personal-data portfolio prototype applying financial concepts to digital privacy: modeled data value, portfolio allocation, exposure analysis, controls, and a Consent Ledger.
+
+### SIGNAL//LAB
+Interactive decision-intelligence sandbox that converts synthetic behavioral signals into explainable momentum, risk, and confidence scores.
+
+### BLACKBOX LEDGER
+Auditable-AI prototype built around a simple idea: every automated recommendation should leave a receipt — evidence, confidence, rule, and human disposition.
+
+### COUNTERFACTUAL
+Interactive philosophy × data experiment for exploring how decisions change when assumptions, evidence thresholds, or reversibility change.
 
 ### Gematrix
 Interactive gematria application built as a coding and data exploration project.
@@ -14,7 +23,7 @@ Interactive gematria application built as a coding and data exploration project.
 Privacy-first digital identity prototype for modeling data exposure, permissions, and consent history.
 
 ### Ghostprint
-Interactive personal-data intelligence prototype that models a user's synthetic digital exposure and lets them reduce it in real time.
+Interactive personal-data intelligence prototype modeling synthetic digital exposure and user-controlled reduction.
 
 ### ORACLE//SELF
 Speculative personal-systems intelligence simulator exploring how behavioral signals can become algorithmic identity narratives.
@@ -25,19 +34,16 @@ Personal-data capital prototype built around the mental model of an investment p
 ### VALYNE
 Personal-data ownership and valuation concept exploring how users could understand and control digital relationships.
 
-## Technical Areas
+## What I Explore
 
-- JavaScript
-- HTML/CSS
-- Python
-- Data analysis
-- Financial modeling
-- Product strategy
-- Privacy & digital identity
-- Front-end development
+`JavaScript` · `HTML/CSS` · `Python` · `Data Analytics` · `Financial Modeling` · `Decision Systems` · `Privacy` · `AI Governance` · `Product Strategy`
+
+## Build Philosophy
+
+I like projects that start with a strange question and turn it into something interactive: What if personal data behaved like an asset? What if an AI recommendation had to produce an audit receipt? What if a forecast showed the cost of being wrong instead of only one predicted future?
 
 ## About
 
-Alexander Zaghloul is a DePaul University student studying Philosophy with a Finance minor, with interests in technology consulting, technology M&A, finance, data analytics, and software-enabled business strategy.
+Alexander Zaghloul is a DePaul University student studying Philosophy with a Finance minor, interested in technology consulting, technology M&A, finance, data analytics, and software-enabled business strategy.
 
-> Note: Projects in this repository are prototypes. Where modeled personal-data values, scores, or company relationships appear, they are synthetic and illustrative rather than claims about real users or companies.
+> **Prototype disclosure:** Projects are exploratory prototypes. Modeled values, scores, identities, transactions, and company relationships are synthetic and illustrative unless explicitly stated otherwise.
