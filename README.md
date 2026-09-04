@@ -4,6 +4,13 @@ Experimental software at the intersection of **technology, finance, data, privac
 
 ## Featured Projects
 
+### [AFTERLIGHT — Echo Heist](./afterlight)
+A complete six-sector browser puzzle game where recorded movements become cooperative echoes. Features a custom JavaScript/Canvas engine, deterministic security patrols, timed lasers, keyboard and touch controls, synthesized audio, and local progress saving.
+
+Includes the complete source, local launch instructions, and **16 passing gameplay tests** with automated solutions for every mission.
+
+[Explore the game and run locally](./afterlight) · [Read the engine](./afterlight/dist/engine.js)
+
 ### DataBearer
 Personal-data portfolio prototype applying financial concepts to digital privacy: modeled data value, portfolio allocation, exposure analysis, controls, and a Consent Ledger.
 

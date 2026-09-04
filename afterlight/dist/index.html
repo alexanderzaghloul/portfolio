@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101613">
+  <meta name="description" content="Record your past. Rewind time. Pull off the perfect heist with your own echoes. AFTERLIGHT is a six-sector puzzle game by Alexander Zaghloul.">
+  <meta property="og:title" content="AFTERLIGHT — Echo Heist">
+  <meta property="og:description" content="One thief. Three echoes. Six vaults to crack. Play the time-loop puzzle heist.">
+  <title>AFTERLIGHT — Echo Heist</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <a class="brand" href="./" aria-label="Afterlight home"><span class="brand-mark" aria-hidden="true">◈</span>AFTERLIGHT<span class="edition">ECHO HEIST</span></a>
+      <nav class="nav" aria-label="Game navigation"><span class="nav-active">PLAY</span><button class="text-button" id="guide-top">FIELD GUIDE <span aria-hidden="true">↗</span></button></nav>
+      <div class="header-actions"><button id="sound" class="icon-button" aria-label="Turn sound on" aria-pressed="false" title="Turn sound on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path id="sound-waves" d="m16 9 6 6m0-6-6 6"/></svg></button><button id="fullscreen" class="icon-button" aria-label="Enter fullscreen" title="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+    </header>
+
+    <main>
+      <div class="heading-row"><div><div class="eyebrow"><span class="tiny-line"></span> THE HELIX ARCHIVE <span class="eyebrow-slash">/</span> NIGHT 001</div><h1>Every move leaves an <em>echo.</em></h1></div><div class="campaign-progress"><span id="campaign-count">00 / 06</span><span>SECTORS CLEARED</span><div id="campaign-bars" class="campaign-bars" aria-hidden="true"></div></div></div>
+
+      <div class="game-layout">
+        <aside class="mission-panel">
+          <div class="panel-label">THE OPERATION <span id="security-label">INITIATION</span></div>
+          <div class="sector-selector" id="sector-selector" aria-label="Choose a sector"></div>
+          <div class="mission-number" aria-hidden="true"><span id="sector-number">01</span><span class="mission-number-line"></span></div>
+          <h2 id="mission-title">The first echo</h2>
+          <p class="mission-brief" id="mission-brief"></p>
+          <ol id="objectives" class="objectives"></ol>
+          <div class="echo-section"><div class="section-label">YOUR ECHO CREW <span id="echo-count">0 / 3</span></div><div class="echo-slots" id="echo-slots"></div><p class="micro-copy">Record a route. Rewind. Your echo stays.</p></div>
+          <div class="intel"><div><span class="intel-symbol" aria-hidden="true">⌘</span><span>Need a way in?</span></div><button id="hint-button" class="text-button">REVEAL HINT <span aria-hidden="true">+</span></button><p id="hint" hidden></p></div>
+          <button id="restart-side" class="restart-button"><span aria-hidden="true">↻</span> Restart sector</button>
+        </aside>
+
+        <section class="play-panel" aria-label="Afterlight game">
+          <div class="stage-top"><div class="stage-location"><span id="status-dot" class="status-dot"></span><span id="status-label">AWAITING ENTRY</span></div><div class="stage-stats"><span class="shard-stat"><span aria-hidden="true">◆</span> <b id="shard-count">0</b><span>/ 3</span></span><span class="stat-divider"></span><span class="time-stat"><span class="timer-label">LOOP</span><b id="timer">20.0</b><span>s</span></span></div><button id="pause" class="pause-button" aria-label="Pause game" title="Pause (Esc)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4v12M13 4v12"/></svg></button></div>
+          <div class="stage" id="stage">
+            <canvas id="game" width="960" height="640" tabindex="0" aria-label="Game field. Use WASD or arrow keys to move, Space to record an echo and rewind, Shift to dash, and Escape to pause.">Your browser needs Canvas support to play Afterlight.</canvas>
+            <div class="stage-vignette" aria-hidden="true"></div>
+            <div class="stage-toast" id="stage-toast" role="status" aria-live="polite"></div>
+            <div class="game-overlay" id="overlay">
+              <div class="overlay-content" id="overlay-content">
+                <span class="overlay-tag" id="overlay-tag">SECTOR 01 · INITIATION</span>
+                <div class="overlay-symbol" id="overlay-symbol" aria-hidden="true">◈</div>
+                <h2 id="overlay-title">Meet your<br><em>past self.</em></h2>
+                <p id="overlay-description">Leave an echo on a switch.<br>Let your past open the way forward.</p>
+                <div id="result-stats" class="result-stats" hidden></div>
+                <button id="primary-action" class="primary-button"><span>ENTER THE ARCHIVE</span><span aria-hidden="true">↗</span></button>
+                <button id="secondary-action" class="overlay-secondary" hidden></button>
+                <span id="overlay-footnote" class="overlay-footnote">NO DOWNLOAD · PLAY AT YOUR OWN PACE</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-panel"><div class="timeline-heading"><span><span class="record-light" id="record-light"></span> <span id="timeline-label">TIMELINE READY</span></span><span id="loop-count">LOOP 01</span></div><div class="timeline-track" id="timeline-track"><div class="timeline-record" id="timeline-record"></div><span class="timeline-playhead" id="timeline-playhead"></span></div><div class="timeline-scale"><span>00s</span><span id="timeline-middle">10s</span><span id="timeline-end">20s</span></div></div>
+          <div class="controls-bar"><span class="control"><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>Move</span></span><button id="rewind" class="control control-button"><kbd>SPACE</kbd><span>Rewind</span><span aria-hidden="true">↶</span></button><button id="dash" class="control control-button"><kbd>SHIFT</kbd><span>Dash</span><span class="dash-meter" id="dash-meter"></span></button><button id="guide-bottom" class="control guide-control">How to play <span aria-hidden="true">?</span></button></div>
+        </section>
+      </div>
+
+      <div class="touch-controls" id="touch-controls" aria-label="Touch game controls"><div class="joystick" id="joystick" role="group" aria-label="Drag to move"><span class="joystick-cross" aria-hidden="true"></span><span id="joystick-knob" class="joystick-knob" aria-hidden="true"></span><span class="joystick-label">MOVE</span></div><div class="touch-actions"><button id="touch-dash" class="touch-dash"><span aria-hidden="true">ϟ</span><span>DASH</span></button><button id="touch-rewind" class="touch-rewind"><span aria-hidden="true">↶</span><span>REWIND</span></button></div></div>
+
+      <div class="legend-row"><div class="legend"><span><i class="legend-player"></i>You</span><span><i class="legend-echo"></i>Echo</span><span><i class="legend-shard"></i>Light shard</span><span><i class="legend-danger"></i>Security</span><span><i class="legend-exit"></i>Extraction</span></div><span class="save-note" id="save-note">Progress saves on this device</span></div>
+    </main>
+    <footer><span>A GAME BY <b>ALEXANDER ZAGHLOUL</b></span><span>RECORD. REWIND. REPEAT.</span><button id="about-button" class="text-button">BEHIND THE GAME <span aria-hidden="true">↗</span></button></footer>
+  </div>
+
+  <dialog id="guide-dialog" class="modal"><div class="modal-heading"><span class="eyebrow">THE FIELD GUIDE</span><button class="close-button" data-close aria-label="Close field guide">×</button></div><h2>Your best accomplice<br>is <em>you.</em></h2><p>Steal every light shard, then reach the extraction tile. Gates need switches. That is where your echoes come in.</p><div class="guide-steps"><article><span>01</span><div><h3>Leave a trace</h3><p>Move onto a lettered switch. Press <kbd>Space</kbd> or tap Rewind. You return to the entrance.</p></div></article><article><span>02</span><div><h3>Work with your past</h3><p>Your echo repeats your route, then holds its last position. Leave it on a switch to keep a gate open. You can have three echoes; a fourth replaces the oldest.</p></div></article><article><span>03</span><div><h3>Steal the light</h3><p>Collect all three shards and reach OUT. Shards stay collected between loops. Avoid red patrols and active lasers; dash through danger with <kbd>Shift</kbd>.</p></div></article></div><div class="guide-controls"><span><kbd>WASD</kbd> / <kbd>↑↓←→</kbd> Move</span><span><kbd>SPACE</kbd> Rewind</span><span><kbd>SHIFT</kbd> Dash</span><span><kbd>ESC</kbd> Pause</span><span><kbd>R</kbd> Restart</span><span><kbd>M</kbd> Sound</span></div><p class="modal-note">On a phone, use the thumbstick and action buttons. The loop rewinds automatically when its timer runs out. Getting caught keeps your echoes and collected shards.</p><button class="primary-button" data-close>GOT IT. LET’S GO. <span aria-hidden="true">↗</span></button></dialog>
+
+  <dialog id="restart-dialog" class="modal small-modal"><div class="modal-heading"><span class="eyebrow">RESET THIS ATTEMPT</span><button class="close-button" data-close aria-label="Cancel restart">×</button></div><h2>A fresh <em>timeline?</em></h2><p>This clears the current sector’s echoes and shards. Your completed sectors and best scores stay saved.</p><button id="confirm-restart" class="primary-button">RESTART SECTOR <span aria-hidden="true">↻</span></button><button class="overlay-secondary" data-close>Keep this timeline</button></dialog>
+
+  <dialog id="about-dialog" class="modal"><div class="modal-heading"><span class="eyebrow">BEHIND AFTERLIGHT</span><button class="close-button" data-close aria-label="Close about dialog">×</button></div><h2>A heist across<br><em>your own timeline.</em></h2><p>AFTERLIGHT is a single-player puzzle game created for Alexander Zaghloul’s project portfolio. Every mission is a small choreography: plan a route, leave an echo, and work with the version of you that came before.</p><div class="about-facts"><div><span>CAMPAIGN</span><strong>6 handcrafted sectors</strong></div><div><span>ENGINE</span><strong>Custom JavaScript + Canvas 2D</strong></div><div><span>AUDIO</span><strong>Procedural Web Audio</strong></div><div><span>PLATFORM</span><strong>Desktop & mobile browsers</strong></div></div><p class="modal-note">Scores and progress are stored only in this browser. No account, server-side leaderboard, or personal data collection is required by the game.</p></dialog>
+  <noscript><div class="noscript">Enable JavaScript to play AFTERLIGHT.</div></noscript>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

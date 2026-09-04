@@ -1,0 +1,9 @@
+{
+  "name": "afterlight-echo-heist",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A deterministic time-loop puzzle heist for the browser.",
+  "scripts": { "start": "node server.mjs", "test": "node --test tests/*.test.mjs", "check": "node --check dist/game.js && node --check dist/engine.js && node --check dist/renderer.js && node --check dist/levels.js && node --check dist/audio.js" },
+  "engines": { "node": ">=20" }
+}
