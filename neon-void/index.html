@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#060817" />
+  <title>NEON VOID // Runner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hudbar">
+      <div>
+        <p class="eyebrow">ALEXANDER ZAGHLOUL // ORIGINAL BROWSER GAME</p>
+        <h1>NEON VOID</h1>
+      </div>
+      <div class="hud-metrics" aria-label="Game metrics">
+        <span><b id="score">000000</b><small>SCORE</small></span>
+        <span><b id="highScore">000000</b><small>BEST</small></span>
+        <span><b id="combo">x1</b><small>COMBO</small></span>
+      </div>
+    </section>
+
+    <section class="game-wrap">
+      <canvas id="game" width="1280" height="720" aria-label="Neon Void game canvas"></canvas>
+      <div class="scanlines" aria-hidden="true"></div>
+
+      <div id="menu" class="overlay active">
+        <div class="panel">
+          <p class="kicker">SURVIVAL PROTOCOL // 01</p>
+          <h2>OUTRUN THE VOID.</h2>
+          <p>Dash through a collapsing neon grid, chain near-misses, collect energy shards, and survive escalating waves.</p>
+          <div class="controls">
+            <span><kbd>WASD</kbd> / <kbd>ARROWS</kbd> Move</span>
+            <span><kbd>SPACE</kbd> Dash</span>
+            <span><kbd>P</kbd> Pause</span>
+          </div>
+          <button id="startBtn">INITIALIZE RUN</button>
+          <p class="micro">No installs. No libraries. Pure HTML5 Canvas + JavaScript.</p>
+        </div>
+      </div>
+
+      <div id="pause" class="overlay">
+        <div class="panel compact">
+          <p class="kicker">SYSTEM HOLD</p>
+          <h2>PAUSED</h2>
+          <p>Press <kbd>P</kbd> to resume.</p>
+        </div>
+      </div>
+
+      <div id="gameOver" class="overlay">
+        <div class="panel">
+          <p class="kicker">RUN TERMINATED</p>
+          <h2 id="finalScore">000000</h2>
+          <p id="runSummary">The void caught you.</p>
+          <button id="restartBtn">RUN IT BACK</button>
+        </div>
+      </div>
+
+      <div class="status-row">
+        <div class="meter-block">
+          <span>INTEGRITY</span>
+          <div class="meter"><i id="healthBar"></i></div>
+        </div>
+        <div class="meter-block">
+          <span>DASH</span>
+          <div class="meter cyan"><i id="dashBar"></i></div>
+        </div>
+        <div class="wave" id="waveLabel">WAVE 01</div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Built from scratch with HTML5 Canvas, JavaScript, procedural effects, collision systems, and persistent high scores.</span>
+      <span class="version">v1.0.0</span>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
