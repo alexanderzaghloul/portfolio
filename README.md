@@ -19,7 +19,7 @@ Interactive philosophy × data experiment for exploring how decisions change whe
 ### [Gematrix](./gematrix)
 An interactive exploration of Jewish heritage through Hebrew gematria and technology. Includes live letter-by-letter calculations, a Hebrew keyboard, curated word connections, and a separate English A1–Z26 mode.
 
-[Explore the code and run locally](./gematrix) · [Hosted demo (owner sign-in required)](https://gematrix-alexander.azaghlou.chatgpt.site)
+[Explore the code and run locally](./gematrix) · [Open the live demo](https://gematrix.azaghlou.chatgpt.site)
 
 ### Consent Ledger
 Privacy-first digital identity prototype for modeling data exposure, permissions, and consent history.
