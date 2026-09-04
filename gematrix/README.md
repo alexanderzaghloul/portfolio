@@ -4,9 +4,9 @@ A personal exploration of Hebrew gematria, Jewish heritage, and technology by **
 
 Gematrix started with my Jewish heritage and a question: what happens when I explore an old tradition through something else I love—technology? The explorer makes each letter's numerical contribution visible, connects words with equal totals, and includes a separate English letter-value experiment for my Excel application.
 
-[Open Gematrix](https://gematrix-alexander.azaghlou.chatgpt.site) · [GitHub source](https://github.com/alexanderzaghloul/portfolio/tree/main/gematrix) · [LinkedIn](https://www.linkedin.com/in/alexander-zaghloul)
+[Open Gematrix](https://gematrix.azaghlou.chatgpt.site) · [GitHub source](https://github.com/alexanderzaghloul/portfolio/tree/main/gematrix) · [LinkedIn](https://www.linkedin.com/in/alexander-zaghloul)
 
-The hosted demo currently requires the owner's sign-in. The source below can be run locally by anyone.
+The hosted demo is public and requires no sign-in. The source below can also be run locally.
 
 ## Features
 
