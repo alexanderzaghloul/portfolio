@@ -2,7 +2,7 @@
 
 A local-first finance operations prototype for turning provider-payment exports into a measurable KPI review and an actionable exception queue.
 
-**All repository data is synthetic. No employer, supplier, customer, claim, voucher or production data is included.** The interface and workflows are a portfolio demonstration by Alexander Zaghloul.
+**All repository data is synthetic. No real employer, supplier, customer, claim, voucher or production data is included.** The interface and workflows are a portfolio demonstration by Alexander Zaghloul.
 
 ## Run the demo
 
