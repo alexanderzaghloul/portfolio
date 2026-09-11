@@ -1,0 +1,7 @@
+*.log
+action-backup*.json
+audit*.json
+private-data/
+real-data/
+*.xlsx
+*.xls

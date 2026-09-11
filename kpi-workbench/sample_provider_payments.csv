@@ -1,0 +1,9 @@
+Unit,Voucher,AcctgDate,PaymentDate,PaymentSelectionStatus,BaseGrossAmount,Descr
+CA01,DEMO-001,8/1/2026,8/3/2026,Paid,125.50,Roadside Assistance
+CA01,DEMO-002,8/2/2026,8/7/2026,Paid,780.00,Travel Support
+CA01,DEMO-003,8/3/2026,8/18/2026,Paid,320.25,Home Emergency
+CA01,DEMO-004,8/4/2026,,Unselected,415.00,Vehicle Protection
+CA01,DEMO-005,8/5/2026,8/5/2026,Paid,-55.00,Specialty Services
+CA01,DEMO-006,8/6/2026,8/4/2026,Paid,210.00,Roadside Assistance
+CA01,DEMO-007,8/7/2026,8/8/2026,Closed,175.00,Travel Support
+US01,DEMO-008,8/7/2026,8/8/2026,Paid,190.00,Travel Support

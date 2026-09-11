@@ -1,0 +1,15 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const KPI=require('./engine.js');
+const root=__dirname;
+if(!process.argv[2])throw Error('Usage: node build.cjs PATH_TO_PAYMENT.csv [AS_OF_YYYY-MM-DD]');
+const input=fs.readFileSync(process.argv[2]);
+const data=KPI.ingest(new TextDecoder('windows-1252').decode(input),process.argv[3]||'2026-09-10',path.basename(process.argv[2]),crypto.createHash('sha256').update(input).digest('hex'));
+const json=JSON.stringify(data).replace(/</g,'\\u003c');
+let source=fs.readFileSync(path.join(root,'index.html'),'utf8');
+source=source.replace("default-src 'self' data: blob:; script-src 'self'; style-src 'self'", "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:");
+source=source.replace('<link rel="stylesheet" href="./styles.css">','<style>'+fs.readFileSync(path.join(root,'styles.css'),'utf8')+'</style>');
+source=source.replace('<script src="./engine.js"></script><script src="./demo.js"></script><script src="./app.js"></script>','<script>'+fs.readFileSync(path.join(root,'engine.js'),'utf8')+'</script><script>const BASELINE='+json+';</script><script>'+fs.readFileSync(path.join(root,'app.js'),'utf8')+'</script>');
+fs.mkdirSync(path.join(root,'dist'),{recursive:true});
+const output=path.join(root,'dist','payment-kpi-workbench.html');
+fs.writeFileSync(output,source);
+console.log(JSON.stringify({output,bytes:Buffer.byteLength(source),counts:data.counts,summary:KPI.stats(data.rows,10)},null,2));

@@ -4,6 +4,11 @@ Experimental software at the intersection of **technology, finance, data, privac
 
 ## Featured Projects
 
+### [Canada Payment KPI Workbench](./kpi-workbench)
+A local-first finance operations application that parses payment exports, validates source records, calculates monthly and program KPIs, isolates timing exceptions, and turns those exceptions into an owner-based follow-up queue. Includes adjustable threshold scenarios, audit exports, local action backups, synthetic demonstration data, and automated calculation and workflow checks.
+
+[Explore the project and run locally](./kpi-workbench) · [Read the calculation engine](./kpi-workbench/engine.js)
+
 ### [AFTERLIGHT — Echo Heist](./afterlight)
 A complete six-sector browser puzzle game where recorded movements become cooperative echoes. Features a custom JavaScript/Canvas engine, deterministic security patrols, timed lasers, keyboard and touch controls, synthesized audio, and local progress saving.
 
@@ -53,6 +58,6 @@ I like projects that start with a strange question and turn it into something in
 
 ## About
 
-Alexander Zaghloul is a DePaul University student studying Philosophy with a Finance minor, interested in technology consulting, technology M&A, finance, data analytics, and software-enabled business strategy.
+Alexander Zaghloul is a DePaul University student studying Philosophy with minors in Finance and Data Analytics, interested in technology consulting, technology M&A, finance, data analytics, and software-enabled business strategy.
 
 > **Prototype disclosure:** Projects are exploratory prototypes. Modeled values, scores, identities, transactions, and company relationships are synthetic and illustrative unless explicitly stated otherwise.

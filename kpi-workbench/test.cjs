@@ -1,0 +1,13 @@
+const assert=require('assert'),KPI=require('./engine.js'),fs=require('fs');
+const H='Unit,Voucher,AcctgDate,PaymentDate,PaymentSelectionStatus,BaseGrossAmount,Descr';
+const input=rows=>H+'\r\n'+rows.join('\r\n');
+let d=KPI.ingest(input(['CA01,V1,9/1/2026,9/11/2026,Paid,100,Example','CA01,V2,9/1/2026,9/12/2026,Paid,200,Example','CA01,V3,9/1/2026,,Unselected,300,Example']),'2026-09-12','test','test');
+let s=KPI.stats(d.rows,10);assert.equal(s.yes,1);assert.equal(s.no,2);assert.equal(s.mean,10.5);assert.equal(s.median,10.5);assert.equal(s.p90,11);assert.equal(s.overdue,1);assert.equal(s.overdueCents,30000);
+d=KPI.ingest(input(['CA01,V1,9/2/2026,9/1/2026,Paid,100,Example','CA01,V2,9/1/2026,9/30/2026,Paid,100,Example','CA01,V3,9/1/2026,,Paid,100,Example','CA01,V4,9/1/2026,9/2/2026,Canceled,100,Example','US01,V5,9/1/2026,9/2/2026,Paid,100,Example']),'2026-09-12','test','test');
+s=KPI.stats(d.rows,10);assert.equal(s.review,3);assert.equal(s.rate,null);assert.equal(d.counts.canceled,1);assert.equal(d.counts.other,1);
+assert.throws(()=>KPI.day('2/30/2026'));assert.equal(KPI.day('3/9/2026')-KPI.day('3/8/2026'),1);assert.throws(()=>KPI.cents('NaN'));assert.throws(()=>KPI.cents('1.001'));assert.equal(KPI.cents('-1,234.56'),-123456);
+assert.deepEqual(KPI.csv('a,b\r\n"line\r\ntext","quoted ""text"""'),[['a','b'],['line\r\ntext','quoted "text"']]);assert.throws(()=>KPI.csv('a,"unclosed'));
+assert.throws(()=>KPI.ingest('bad,headers\n1,2','2026-09-12','test','test'));
+const row='CA01,V1,9/1/2026,9/2/2026,Paid,100,Example';d=KPI.ingest(input([row,row]),'2026-09-12','test','test');assert.equal(d.counts.duplicates,1);assert.equal(d.rows.length,2);
+const vm=require('vm');const demo=vm.runInNewContext(fs.readFileSync(__dirname+'/demo.js','utf8')+';BASELINE');s=KPI.stats(demo.rows,10);assert.equal(demo.counts.raw,1698);assert.equal(s.n,1680);assert.equal(s.paid,1673);assert.equal(s.yes,1617);assert.equal(s.no,62);assert.equal(s.review,1);assert.equal(s.mean.toFixed(2),'3.50');const aug=KPI.monthly(demo.rows,10).find(r=>r.month==='2026-08');assert.equal(aug.n,210);assert.equal(aug.mean.toFixed(2),'3.07');console.log('PASS: synthetic demo reconciliation and monthly cohort');
+console.log('PASS: inclusive threshold, unpaid age, exclusions, invalid/future dates, signed amounts, CSV quoting, duplicate reporting and distribution statistics');
