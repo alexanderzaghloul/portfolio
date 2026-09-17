@@ -4,6 +4,11 @@ Experimental software at the intersection of **technology, finance, data, privac
 
 ## Featured Projects
 
+### [DealLens — M&A Analysis](./deallens)
+An educational acquisition model with equity and enterprise value calculations, stock/cash/debt financing, EPS accretion/dilution, synergy break-even, and a 25-case sensitivity table. Includes assumption import/export, deal-memo generation, and 13 automated model checks. Uses hypothetical data; developed with AI assistance.
+
+[Open the source and local launch instructions](./deallens) · [Review the calculation engine](./deallens/model.js)
+
 ### [Canada Payment KPI Workbench](./kpi-workbench)
 A local-first finance operations application that parses payment exports, validates source records, calculates monthly and program KPIs, isolates timing exceptions, and turns those exceptions into an owner-based follow-up queue. Includes adjustable threshold scenarios, audit exports, local action backups, synthetic demonstration data, and automated calculation and workflow checks.
 
