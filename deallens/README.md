@@ -1,6 +1,6 @@
 # DealLens
 
-An educational M&A acquisition-analysis prototype by Alexander Zaghloul. All example inputs are hypothetical, not AXA data or a real transaction. Built with AI assistance; calculations, assumptions and test cases are exposed for review.
+An educational M&A acquisition-analysis prototype by Alexander Zaghloul. All example inputs are hypothetical, not AXA data or a real transaction. Calculations, assumptions and test cases are exposed for review.
 
 ## Run
 
@@ -19,6 +19,8 @@ Download this folder and open `index.html` in a desktop browser. No installation
 ## Test
 
 With Node.js installed, run `node test.cjs`. Thirteen model checks cover hand-calculated baseline outputs, alternative funding structures, fees, downside earnings, invalid inputs, break-even and sensitivity consistency.
+
+Run `node test-ui.cjs` for controller checks covering chart output, validation, scenario controls and export/import behavior using a minimal DOM harness. These are not browser rendering tests.
 
 ## Two-minute demonstration
 
@@ -40,6 +42,19 @@ EPS-neutral realized synergies = max(0, [standalone buyer EPS × new shares − 
 
 This is a transparent teaching model, not investment advice or a production valuation platform. It does not calculate DCF value, full purchase-price allocation, goodwill, deferred taxes, regulatory outcomes, working capital, debt refinancing, integration phasing, or a balanced three-statement model. Validate financial statements and sources before substituting real inputs. A future extension could add a cash-flow valuation alongside accretion to evaluate price versus intrinsic value.
 
-## Interview preparation
+## Interface
 
-Read `model.js` and reproduce the default calculation by hand before presenting the project. Be precise about your role, the AI-assisted development process, the hypothetical inputs, and what you can explain independently. Do not describe this as a completed deal or client advisory engagement.
+Responsive analyst workspace with a live scenario snapshot, funding composition, signed EPS comparison, earnings bridge, sensitivity heatmap and printable analysis. The snapshot compares recurring accretion against the fixed default example, not a market benchmark. All calculations run locally in the browser.
+
+## Project structure
+
+- `index.html` — complete application interface and methodology
+- `style.css` — responsive visual system and print layout
+- `model.js` — independent financial calculation engine
+- `app.js` — scenario controls, visualizations and exports
+- `test.cjs` — numerical model checks
+- `test-ui.cjs` — controller and export/import checks
+
+## Scope
+
+Independent portfolio project by Alexander Zaghloul. This is a hypothetical modeling exercise, not a completed transaction or client advisory engagement.
