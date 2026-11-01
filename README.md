@@ -1,68 +1,65 @@
-# Alexander Zaghloul — Project Portfolio
+# Alexander Zaghloul — Finance, Data & Software
 
-Experimental software at the intersection of **technology, finance, data, privacy, and decision science**.
+I build working systems at the intersection of **financial analysis, automation, data governance, and product engineering**.
 
-## Featured Projects
+My portfolio combines finance-operations experience with hands-on development in JavaScript, Python, HTML, and CSS. Every public project uses synthetic or non-confidential information.
+
+## Featured Work
+
+### [ATLAS — Finance Operations Intelligence](./atlas-case-study)
+A sanitized case study of an internal software prototype I independently developed during a Finance Operations internship. The concept unified KPI reporting, financial data, governance checks, and issue tracking in one workflow. I took it from idea to working prototype, presented it to stakeholders, incorporated feedback, and documented the path toward production readiness.
+
+**Focus:** Finance operations · Automation · Data governance · Product development  
+**Confidentiality:** No employer code, data, credentials, or proprietary logic is published.
+
+[Read the sanitized case study →](./atlas-case-study)
 
 ### [DealLens — M&A Analysis](./deallens)
-An educational acquisition model with equity and enterprise value calculations, stock/cash/debt financing, EPS accretion/dilution, synergy break-even, and a 25-case sensitivity table. Includes assumption import/export, deal-memo generation, and 13 automated model checks. Uses hypothetical data; developed with AI assistance.
+An educational acquisition model covering enterprise value, financing mix, EPS accretion/dilution, synergy break-even, and a 25-case sensitivity table. Includes deal-memo generation and 13 automated model checks.
 
-[Open the source and local launch instructions](./deallens) · [Review the calculation engine](./deallens/model.js)
+[Explore the project →](./deallens) · [Review the calculation engine →](./deallens/model.js)
 
 ### [Canada Payment KPI Workbench](./kpi-workbench)
-A local-first finance operations application that parses payment exports, validates source records, calculates monthly and program KPIs, isolates timing exceptions, and turns those exceptions into an owner-based follow-up queue. Includes adjustable threshold scenarios, audit exports, local action backups, synthetic demonstration data, and automated calculation and workflow checks.
+A local-first finance operations application that validates payment exports, calculates monthly and program KPIs, isolates timing exceptions, and converts exceptions into an owner-based follow-up queue.
 
-[Explore the project and run locally](./kpi-workbench) · [Read the calculation engine](./kpi-workbench/engine.js)
+[Explore the project →](./kpi-workbench) · [Review the calculation engine →](./kpi-workbench/engine.js)
 
 ### [AFTERLIGHT — Echo Heist](./afterlight)
-A complete six-sector browser puzzle game where recorded movements become cooperative echoes. Features a custom JavaScript/Canvas engine, deterministic security patrols, timed lasers, keyboard and touch controls, synthesized audio, and local progress saving.
+A six-sector browser puzzle game with a custom JavaScript/Canvas engine, deterministic patrols, timed lasers, touch controls, synthesized audio, and 16 passing gameplay tests.
 
-Includes the complete source, local launch instructions, and **16 passing gameplay tests** with automated solutions for every mission.
-
-[Explore the game and run locally](./afterlight) · [Read the engine](./afterlight/dist/engine.js)
-
-### DataBearer
-Personal-data portfolio prototype applying financial concepts to digital privacy: modeled data value, portfolio allocation, exposure analysis, controls, and a Consent Ledger.
-
-### SIGNAL//LAB
-Interactive decision-intelligence sandbox that converts synthetic behavioral signals into explainable momentum, risk, and confidence scores.
-
-### BLACKBOX LEDGER
-Auditable-AI prototype built around a simple idea: every automated recommendation should leave a receipt — evidence, confidence, rule, and human disposition.
-
-### COUNTERFACTUAL
-Interactive philosophy × data experiment for exploring how decisions change when assumptions, evidence thresholds, or reversibility change.
+[Explore the game →](./afterlight) · [Read the engine →](./afterlight/dist/engine.js)
 
 ### [Gematrix](./gematrix)
-An interactive exploration of Jewish heritage through Hebrew gematria and technology. Includes live letter-by-letter calculations, a Hebrew keyboard, curated word connections, and a separate English A1–Z26 mode.
+An interactive exploration of Jewish heritage through Hebrew gematria, featuring live letter-by-letter calculations, a Hebrew keyboard, curated connections, and a separate English A1–Z26 mode.
 
-[Explore the code and run locally](./gematrix) · [Open the live demo](https://gematrix.azaghlou.chatgpt.site)
+[Explore the code →](./gematrix) · [Open the live demo →](https://gematrix.azaghlou.chatgpt.site)
 
-### Consent Ledger
-Privacy-first digital identity prototype for modeling data exposure, permissions, and consent history.
+## More Experiments
 
-### Ghostprint
-Interactive personal-data intelligence prototype modeling synthetic digital exposure and user-controlled reduction.
+| Project | What it explores |
+|---|---|
+| **DataBearer** | Personal data modeled as a portfolio with exposure, controls, and consent history |
+| **SIGNAL//LAB** | Explainable momentum, risk, and confidence scoring from synthetic signals |
+| **BLACKBOX LEDGER** | Audit receipts for automated recommendations |
+| **COUNTERFACTUAL** | How decisions change when assumptions and evidence thresholds move |
+| **Consent Ledger** | Privacy-first identity, permissions, and consent history |
+| **Ghostprint** | Synthetic digital exposure and user-controlled reduction |
+| **ORACLE//SELF** | Behavioral signals and algorithmic identity narratives |
+| **CAPRIVA** | Personal data interpreted through an investment-portfolio model |
+| **VALYNE** | Personal-data ownership, valuation, and control |
 
-### ORACLE//SELF
-Speculative personal-systems intelligence simulator exploring how behavioral signals can become algorithmic identity narratives.
+## Toolkit
 
-### CAPRIVA
-Personal-data capital prototype built around the mental model of an investment portfolio.
-
-### VALYNE
-Personal-data ownership and valuation concept exploring how users could understand and control digital relationships.
-
-## What I Explore
-
-`JavaScript` · `HTML/CSS` · `Python` · `Data Analytics` · `Financial Modeling` · `Decision Systems` · `Privacy` · `AI Governance` · `Product Strategy`
+`JavaScript` · `Python` · `HTML/CSS` · `Data Analytics` · `Financial Modeling` · `KPI Reporting` · `Data Governance` · `Decision Systems` · `AI Governance` · `Product Strategy`
 
 ## Build Philosophy
 
-I like projects that start with a strange question and turn it into something interactive: What if personal data behaved like an asset? What if an AI recommendation had to produce an audit receipt? What if a forecast showed the cost of being wrong instead of only one predicted future?
+**Question the premise. Measure the signal. Build the answer.**
+
+I like projects that begin with a difficult operational or strategic question and end as something interactive, testable, and useful.
 
 ## About
 
-Alexander Zaghloul is a DePaul University student studying Philosophy with minors in Finance and Data Analytics, interested in technology consulting, technology M&A, finance, data analytics, and software-enabled business strategy.
+I’m a DePaul University student studying Philosophy with minors in Finance and Data Analytics. I’m interested in opportunities spanning data analytics, automation, finance, fintech, software development, technology strategy, and responsible AI.
 
-> **Prototype disclosure:** Projects are exploratory prototypes. Modeled values, scores, identities, transactions, and company relationships are synthetic and illustrative unless explicitly stated otherwise.
+> **Prototype disclosure:** Projects are exploratory prototypes. Modeled values, scores, transactions, identities, and company relationships are synthetic and illustrative unless explicitly stated otherwise.
