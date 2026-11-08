@@ -1,65 +1,56 @@
 # Alexander Zaghloul — Finance, Data & Software
 
-I build working systems at the intersection of **financial analysis, automation, data governance, and product engineering**.
+**[Open the live portfolio →](https://alexander-zaghloul-lab.azaghlou.chatgpt.site)**
 
-My portfolio combines finance-operations experience with hands-on development in JavaScript, Python, HTML, and CSS. Every public project uses synthetic or non-confidential information.
+I build systems where finance, data, product thinking, and software meet. This repository contains live analytical tools, interactive concepts, browser games, and documented case studies—not static mockups.
 
-## Featured Work
+> Question the premise. Measure the signal. Build the answer.
 
-### [ATLAS — Finance Operations Intelligence](./atlas-case-study)
-A sanitized case study of an internal software prototype I independently developed during a Finance Operations internship. The concept unified KPI reporting, financial data, governance checks, and issue tracking in one workflow. I took it from idea to working prototype, presented it to stakeholders, incorporated feedback, and documented the path toward production readiness.
+## Start here
 
-**Focus:** Finance operations · Automation · Data governance · Product development  
-**Confidentiality:** No employer code, data, credentials, or proprietary logic is published.
+| Project | What it does | Status |
+|---|---|---|
+| **ATLAS** | Sanitized case study of a finance-operations prototype for KPI reporting, reconciliation controls, exception ownership, and audit visibility | Interactive case study |
+| **DealLens** | Acquisition pricing, financing, EPS, synergy break-even, and 25-case sensitivity analysis | Live model |
+| **KPI Workbench** | Local-first payments analysis with validation, distributions, exception queues, ownership, and export controls | Live dashboard |
+| **AFTERLIGHT** | Six-sector puzzle game built with Canvas, Web Audio, persistence, and tested game logic | Playable game |
+| **Gematrix** | Bilingual Hebrew/English gematria explorer shaped by personal heritage | Live application |
 
-[Read the sanitized case study →](./atlas-case-study)
+## Project index
 
-### [DealLens — M&A Analysis](./deallens)
-An educational acquisition model covering enterprise value, financing mix, EPS accretion/dilution, synergy break-even, and a 25-case sensitivity table. Includes deal-memo generation and 13 automated model checks.
+### Finance and analytics
 
-[Explore the project →](./deallens) · [Review the calculation engine →](./deallens/model.js)
+- [ATLAS case study](./atlas-case-study) — public reconstruction using synthetic data; no employer code, customer data, credentials, or proprietary logic.
+- [DealLens](./deallens) — traceable educational M&A model with scenario exports.
+- [KPI Workbench](./kpi-workbench) — reproducible KPI and exception-management workflow.
 
-### [Canada Payment KPI Workbench](./kpi-workbench)
-A local-first finance operations application that validates payment exports, calculates monthly and program KPIs, isolates timing exceptions, and converts exceptions into an owner-based follow-up queue.
+### Data identity and privacy
 
-[Explore the project →](./kpi-workbench) · [Review the calculation engine →](./kpi-workbench/engine.js)
+- [DataBearer](./databearer) — personal data represented as a portfolio of holdings, counterparties, permissions, and controls.
+- [Consent Ledger](./consent-ledger) — permission history and consent audit prototype.
+- [Ghostprint](./ghostprint) — data-shadow and inferred digital-twin simulator.
+- [Oracle Self](./oracle-self) — explanation layer for speculative behavioral classifications.
+- [Capriva](./capriva) — counterparty and permission-concentration control surface.
+- [Valyne](./valyne) — transparent, assumption-driven personal-data valuation prototype.
 
-### [AFTERLIGHT — Echo Heist](./afterlight)
-A six-sector browser puzzle game with a custom JavaScript/Canvas engine, deterministic patrols, timed lasers, touch controls, synthesized audio, and 16 passing gameplay tests.
+### Games and experiments
 
-[Explore the game →](./afterlight) · [Read the engine →](./afterlight/dist/engine.js)
-
-### [Gematrix](./gematrix)
-An interactive exploration of Jewish heritage through Hebrew gematria, featuring live letter-by-letter calculations, a Hebrew keyboard, curated connections, and a separate English A1–Z26 mode.
-
-[Explore the code →](./gematrix) · [Open the live demo →](https://gematrix.azaghlou.chatgpt.site)
-
-## More Experiments
-
-| Project | What it explores |
-|---|---|
-| **DataBearer** | Personal data modeled as a portfolio with exposure, controls, and consent history |
-| **SIGNAL//LAB** | Explainable momentum, risk, and confidence scoring from synthetic signals |
-| **BLACKBOX LEDGER** | Audit receipts for automated recommendations |
-| **COUNTERFACTUAL** | How decisions change when assumptions and evidence thresholds move |
-| **Consent Ledger** | Privacy-first identity, permissions, and consent history |
-| **Ghostprint** | Synthetic digital exposure and user-controlled reduction |
-| **ORACLE//SELF** | Behavioral signals and algorithmic identity narratives |
-| **CAPRIVA** | Personal data interpreted through an investment-portfolio model |
-| **VALYNE** | Personal-data ownership, valuation, and control |
-
-## Toolkit
-
-`JavaScript` · `Python` · `HTML/CSS` · `Data Analytics` · `Financial Modeling` · `KPI Reporting` · `Data Governance` · `Decision Systems` · `AI Governance` · `Product Strategy`
-
-## Build Philosophy
-
-**Question the premise. Measure the signal. Build the answer.**
-
-I like projects that begin with a difficult operational or strategic question and end as something interactive, testable, and useful.
+- [AFTERLIGHT](./afterlight) — browser puzzle game about echoes and time loops.
+- [Neon Void](./neon-void) — arcade survival game in vanilla JavaScript and Canvas.
+- [Gematrix](./gematrix) — language, heritage, and numerical pattern exploration.
+- [Blackbox Ledger](./blackbox-ledger) — exposes inputs and assumptions inside opaque systems.
+- [Counterfactual](./counterfactual) — explores how one changed input alters a decision.
+- [Signal Lab](./signal-lab) — separates signal, noise, and confidence visually.
+- [Dinner Invitation](https://alexanderzaghloul.github.io/dinner-invitation/) — personalized interactive invitation microsite.
 
 ## About
 
-I’m a DePaul University student studying Philosophy with minors in Finance and Data Analytics. I’m interested in opportunities spanning data analytics, automation, finance, fintech, software development, technology strategy, and responsible AI.
+I am a DePaul University student studying Philosophy with minors in Finance and Data Analytics. Philosophy trained me to question assumptions; finance and analytics gave me ways to test them; software lets me turn the answer into something usable.
 
-> **Prototype disclosure:** Projects are exploratory prototypes. Modeled values, scores, transactions, identities, and company relationships are synthetic and illustrative unless explicitly stated otherwise.
+**Toolkit:** JavaScript, Python, HTML/CSS, SQL, financial modeling, KPI reporting, data validation, workflow design, data governance, responsible AI, and product strategy.
+
+[Live portfolio](https://alexander-zaghloul-lab.azaghlou.chatgpt.site) · [LinkedIn](https://www.linkedin.com/in/alexander-zaghloul/) · [Email](mailto:azaghlou@depaul.edu)
+
+## Public-data boundary
+
+All public demos use synthetic, hypothetical, or user-entered information. Employer-confidential code, customer data, credentials, and proprietary business logic are intentionally excluded.

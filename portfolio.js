@@ -1,0 +1,55 @@
+const projects=[
+  {name:"KPI Workbench",cat:"finance",kind:"Live dashboard",accent:"#42e8e0",desc:"A local-first payments analysis workbench with validation, distribution metrics, exception queues, ownership, exports, and reproducibility controls.",stack:"JavaScript · CSV · KPI design · QA",live:"kpi-workbench/",code:"kpi-workbench",visual:"chart"},
+  {name:"Gematrix",cat:"experiments",kind:"Live application",accent:"#f1c56b",desc:"A bilingual Hebrew and English gematria explorer shaped by personal heritage, with multiple calculation systems and shareable results.",stack:"JavaScript · language systems · UI",live:"gematrix/",code:"gematrix",visual:"word",mark:"אמת"},
+  {name:"AFTERLIGHT",cat:"games",kind:"Playable game",accent:"#8d71ff",desc:"A six-sector browser puzzle game about echoes, light, and time loops—built with Canvas, Web Audio, persistence, and automated logic tests.",stack:"Canvas · Web Audio · game systems",live:"afterlight/dist/",code:"afterlight",visual:"orbit"},
+  {name:"DataBearer",cat:"identity",kind:"Interactive concept",accent:"#ff8a3d",desc:"A personal-data portfolio that treats digital exposure, permissions, and counterparties with the visibility of a financial statement.",stack:"Privacy · portfolio analytics · product",live:"databearer/",code:"databearer",visual:"radar"},
+  {name:"Consent Ledger",cat:"identity",kind:"Interactive concept",accent:"#c8ff36",desc:"A privacy control room for simulating permissions, tracking consent events, and explaining the modeled value of personal data.",stack:"Identity · local storage · governance",live:"consent-ledger/",code:"consent-ledger",visual:"bars"},
+  {name:"Ghostprint",cat:"identity",kind:"Interactive concept",accent:"#e767ff",desc:"A data-shadow simulator that maps how everyday signals assemble an inferred digital twin—and lets the user rewind the trail.",stack:"Data ethics · simulation · graph UI",live:"ghostprint/",code:"ghostprint",visual:"nodes"},
+  {name:"Oracle Self",cat:"identity",kind:"Interactive concept",accent:"#5ea0ff",desc:"A speculative behavioral model that exposes how algorithms could translate weak signals into confident narratives about a person.",stack:"Responsible AI · explainability · UI",live:"oracle-self/",code:"oracle-self",visual:"scan"},
+  {name:"Blackbox Ledger",cat:"experiments",kind:"Live experiment",accent:"#ff5c72",desc:"An interactive accounting of the hidden assumptions, inputs, and consequences inside opaque decision systems.",stack:"Algorithmic accountability · web UI",live:"blackbox-ledger/",code:"blackbox-ledger",visual:"word",mark:"B/L"},
+  {name:"Counterfactual",cat:"experiments",kind:"Live experiment",accent:"#42e8e0",desc:"A scenario machine for asking how one changed input can alter an apparently inevitable decision.",stack:"Decision systems · simulation",live:"counterfactual/",code:"counterfactual",visual:"fork"},
+  {name:"Signal Lab",cat:"experiments",kind:"Live experiment",accent:"#c8ff36",desc:"A visual laboratory for separating meaningful signal from noise and interrogating confidence before acting.",stack:"Signal design · interactive analytics",live:"signal-lab/",code:"signal-lab",visual:"wave"},
+  {name:"Neon Void",cat:"games",kind:"Playable game",accent:"#ff3bd4",desc:"A fast arcade survival game built entirely in the browser, with escalating pressure, responsive controls, and a neon visual system.",stack:"Canvas · JavaScript · game loop",live:"neon-void/",code:"neon-void",visual:"ship"},
+  {name:"Capriva",cat:"identity",kind:"Interactive concept",accent:"#f6c453",desc:"A consumer-facing control surface for understanding the parties, permissions, and concentration risk inside a personal-data portfolio.",stack:"Fintech language · privacy · UX",live:"capriva/",code:"capriva",visual:"ring"},
+  {name:"Valyne",cat:"identity",kind:"Interactive concept",accent:"#65e6b4",desc:"A modeled valuation layer for personal data that makes assumptions inspectable instead of presenting a fictional single price.",stack:"Valuation · consent · transparency",live:"valyne/",code:"valyne",visual:"chart"},
+  {name:"Dinner Invitation",cat:"experiments",kind:"Live microsite",accent:"#ff7a9f",desc:"A playful personalized invitation generator that turns a simple date request into an interactive web moment.",stack:"HTML/CSS · interaction design",live:"https://alexanderzaghloul.github.io/dinner-invitation/",code:"https://github.com/alexanderzaghloul/dinner-invitation",visual:"word",mark:"RSVP"},
+  {name:"DealLens",cat:"finance",kind:"Live model",accent:"#c8ff36",desc:"A traceable acquisition model spanning purchase price, financing, EPS, execution risk, and sensitivity analysis.",stack:"M&A · financial modeling · JavaScript",live:"deallens/",code:"deallens",visual:"chart"},
+  {name:"ATLAS",cat:"finance",kind:"Sanitized case study",accent:"#8d71ff",desc:"A public, synthetic account of a finance-operations prototype—focused on workflow, controls, KPI design, and iteration.",stack:"Finance operations · controls · product",live:"atlas-case-study/",code:"atlas-case-study",visual:"dashboard"}
+];
+
+const grid=document.querySelector("#projects");
+const resultCount=document.querySelector("#result-count");
+const icons={
+  chart:'<svg viewBox="0 0 200 100"><path d="M5 89 C35 82 40 32 70 46 S116 81 140 42 S175 19 195 8" fill="none" stroke="currentColor" stroke-width="4"/><path d="M5 89 C35 82 40 32 70 46 S116 81 140 42 S175 19 195 8 L195 100 L5 100Z" fill="currentColor" opacity=".12"/></svg>',
+  orbit:'<svg viewBox="0 0 200 100"><ellipse cx="100" cy="50" rx="70" ry="28" fill="none" stroke="currentColor"/><ellipse cx="100" cy="50" rx="70" ry="28" fill="none" stroke="currentColor" transform="rotate(55 100 50)"/><circle cx="100" cy="50" r="12" fill="currentColor"/><circle cx="160" cy="37" r="5" fill="currentColor"/></svg>',
+  radar:'<svg viewBox="0 0 200 100"><g transform="translate(100 50)" fill="none" stroke="currentColor"><circle r="40" opacity=".3"/><circle r="25" opacity=".3"/><path d="M0-42V42M-42 0H42M-30-30L30 30M30-30L-30 30" opacity=".3"/><path d="M0-34L29-8L13 27L-22 22L-31-7Z" fill="currentColor" opacity=".24"/></g></svg>',
+  bars:'<svg viewBox="0 0 200 100"><g fill="currentColor"><rect x="20" y="58" width="22" height="30" opacity=".3"/><rect x="54" y="38" width="22" height="50" opacity=".5"/><rect x="88" y="18" width="22" height="70"/><rect x="122" y="48" width="22" height="40" opacity=".6"/><rect x="156" y="28" width="22" height="60" opacity=".8"/></g></svg>',
+  nodes:'<svg viewBox="0 0 200 100"><g stroke="currentColor" opacity=".5"><path d="M35 30L91 20L130 52L168 26M91 20L75 74L130 52L158 78M35 30L75 74"/></g><g fill="currentColor"><circle cx="35" cy="30" r="7"/><circle cx="91" cy="20" r="5"/><circle cx="130" cy="52" r="9"/><circle cx="168" cy="26" r="5"/><circle cx="75" cy="74" r="6"/><circle cx="158" cy="78" r="5"/></g></svg>',
+  scan:'<svg viewBox="0 0 200 100"><g fill="none" stroke="currentColor"><path d="M55 17H25V43M145 17H175V43M55 83H25V57M145 83H175V57" stroke-width="3"/><circle cx="100" cy="45" r="18"/><path d="M65 84C70 62 83 55 100 55S131 62 135 84"/></g><path d="M20 51H180" stroke="currentColor" stroke-width="2" opacity=".6"/></svg>',
+  fork:'<svg viewBox="0 0 200 100"><path d="M20 50H78C105 50 98 20 126 20H180M78 50C105 50 98 80 126 80H180" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="78" cy="50" r="7" fill="currentColor"/></svg>',
+  wave:'<svg viewBox="0 0 200 100"><path d="M5 50H27L36 20L50 82L65 38L76 64L88 49H195" fill="none" stroke="currentColor" stroke-width="4"/></svg>',
+  ship:'<svg viewBox="0 0 200 100"><path d="M100 12L131 79L100 65L69 79Z" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="100" cy="52" r="9" fill="currentColor"/><path d="M84 70L73 94M116 70L127 94" stroke="currentColor" stroke-width="3"/></svg>',
+  ring:'<svg viewBox="0 0 200 100"><circle cx="100" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="14" opacity=".18"/><path d="M100 13A37 37 0 1 1 68 68" fill="none" stroke="currentColor" stroke-width="14"/><text x="100" y="57" text-anchor="middle" fill="currentColor" font-size="20">78</text></svg>',
+  dashboard:'<svg viewBox="0 0 200 100"><rect x="15" y="15" width="170" height="70" rx="3" fill="none" stroke="currentColor"/><path d="M15 35H185M80 35V85" stroke="currentColor" opacity=".5"/><path d="M92 69L112 55L132 64L157 44L174 52" fill="none" stroke="currentColor" stroke-width="3"/><rect x="28" y="48" width="38" height="7" fill="currentColor" opacity=".4"/><rect x="28" y="62" width="25" height="7" fill="currentColor" opacity=".8"/></svg>'
+};
+function visual(p){return p.visual==="word"?'<span class="visual-word">'+p.mark+'</span>':icons[p.visual]||icons.chart}
+function codeUrl(p){return p.code.startsWith("http")?p.code:"https://github.com/alexanderzaghloul/portfolio/tree/main/"+p.code}
+function render(filter="all"){
+  grid.innerHTML="";
+  const visible=projects.filter(p=>filter==="all"||p.cat===filter);
+  visible.forEach((p,i)=>{
+    const card=document.createElement("article");card.className="project-card";card.style.setProperty("--accent",p.accent);card.style.setProperty("--wash",p.accent+"33");
+    card.innerHTML='<div class="project-top"><span><i class="status-dot"></i>'+p.kind+'</span><span>'+String(i+1).padStart(2,"0")+'</span></div><div class="project-visual">'+visual(p)+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="card-bottom"><div class="card-stack">'+p.stack+'</div><div class="card-links"><a href="'+p.live+'" target="_blank">Open project ↗</a><a href="'+codeUrl(p)+'" target="_blank" rel="noreferrer">Code</a></div></div>';
+    grid.appendChild(card);
+  });
+  resultCount.textContent="Showing "+visible.length+" system"+(visible.length===1?"":"s");
+}
+render();
+document.querySelectorAll(".filters button").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelector(".filters .active").classList.remove("active");btn.classList.add("active");render(btn.dataset.filter);
+}));
+
+const canvas=document.querySelector("#field"),ctx=canvas.getContext("2d");let points=[];
+function size(){const d=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;canvas.style.width=innerWidth+"px";canvas.style.height=innerHeight+"px";ctx.setTransform(d,0,0,d,0,0);points=Array.from({length:Math.min(80,Math.floor(innerWidth/18))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12}))}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);ctx.fillStyle="rgba(255,255,255,.13)";points.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>innerWidth)p.vx*=-1;if(p.y<0||p.y>innerHeight)p.vy*=-1;ctx.fillRect(p.x,p.y,1,1)});ctx.strokeStyle="rgba(141,113,255,.055)";for(let i=0;i<points.length;i++)for(let j=i+1;j<points.length;j++){const a=points[i],b=points[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){ctx.globalAlpha=1-d/120;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}ctx.globalAlpha=1;requestAnimationFrame(draw)}
+size();draw();addEventListener("resize",size);

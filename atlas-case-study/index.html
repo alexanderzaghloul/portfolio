@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="ATLAS: a sanitized finance operations case study by Alexander Zaghloul."><title>ATLAS — Finance Operations Case Study</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><a class="brand" href="../"><span>A</span><b>ATLAS</b><small>Finance Operations Control Center</small></a><nav><a href="#case">Case study</a><a href="#demo">Synthetic demo</a><a href="https://github.com/alexanderzaghloul/portfolio/tree/main/atlas-case-study" target="_blank" rel="noreferrer">Documentation ↗</a></nav></header>
+<main>
+  <section class="hero"><div><p class="eyebrow">SANITIZED PORTFOLIO CASE STUDY</p><h1>Make the exception<br><em>impossible to ignore.</em></h1><p>ATLAS began with a finance-operations question: how could fragmented KPI reporting, reconciliation checks, and follow-up become one inspectable workflow?</p><div class="hero-actions"><a href="#demo">Open synthetic control center ↓</a><a href="#case">Read the build story</a></div></div><aside><div class="stat"><span>Monthly scale analyzed</span><b>17.9k+</b><small>records across finance workflows</small></div><div class="stat"><span>Prototype focus</span><b>01</b><small>shared view of risk and action</small></div><div class="boundary"><b>PUBLIC BOUNDARY</b>No employer code, customer data, credentials, internal logic, or proprietary screens appear here. The demo below is newly built with synthetic records.</div></aside></section>
+  <section id="case" class="case">
+    <div class="section-head"><p class="eyebrow">01 / THE BUILD STORY</p><h2>From reporting artifact<br>to operating system.</h2></div>
+    <div class="story-grid">
+      <article><span>01</span><h3>Find the friction</h3><p>KPI views and financial follow-up lived across separate files, systems, dates, owners, and definitions. A number could be correct and still fail to create action.</p></article>
+      <article><span>02</span><h3>Model the workflow</h3><p>I mapped the path from source record to validation, exception, owner, resolution, and export—then designed each view around the next decision.</p></article>
+      <article><span>03</span><h3>Build the prototype</h3><p>I independently developed an interactive prototype with JavaScript, Python, HTML, and CSS, iterating from stakeholder feedback and real operating questions.</p></article>
+      <article><span>04</span><h3>Test the idea</h3><p>The work was presented internally and evaluated for continued development. The strongest signal was not a cosmetic dashboard; it was clearer ownership and traceability.</p></article>
+    </div>
+    <div class="flow"><span>Source records</span><i>→</i><span>Validation</span><i>→</i><span>Exception</span><i>→</i><span>Owner</span><i>→</i><span>Resolution</span><i>→</i><span>Audit trail</span></div>
+  </section>
+  <section id="demo" class="demo">
+    <div class="demo-title"><div><p class="eyebrow">02 / SYNTHETIC RECONSTRUCTION</p><h2>ATLAS control center</h2></div><div class="demo-actions"><button id="reset">Reset</button><button id="export">Export queue</button><button class="primary" id="reconcile">Run controls</button></div></div>
+    <div class="dashboard">
+      <aside class="rail"><b>ATLAS</b><button class="active">Overview</button><button>Reconciliation</button><button>Exceptions <i id="badge">4</i></button><button>Ownership</button><button>Audit log</button><small>SYNTHETIC MODE<br>US / CA · NOV 2026</small></aside>
+      <div class="content">
+        <div class="dash-head"><div><span>FINANCE OPERATIONS</span><h3>Control overview</h3></div><label>Region <select id="region"><option value="all">US + Canada</option><option value="us">United States</option><option value="ca">Canada</option></select></label></div>
+        <div id="metrics" class="metrics"></div>
+        <div class="panels"><div class="panel chart-panel"><div class="panel-head"><b>Cycle-time distribution</b><span>Last 8 periods</span></div><svg id="chart" viewBox="0 0 700 230" preserveAspectRatio="none"></svg></div><div class="panel"><div class="panel-head"><b>Control coverage</b><span>Current</span></div><div id="rings" class="rings"></div></div></div>
+        <div class="panel queue"><div class="panel-head"><b>Priority exception queue</b><span id="queue-count"></span></div><div class="table-wrap"><table><thead><tr><th>Record</th><th>Region</th><th>Control</th><th>Age</th><th>Owner</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="lessons"><p class="eyebrow">03 / WHAT THE PROJECT TAUGHT ME</p><div><h2>Good finance software does not replace judgment.</h2><p>It gives judgment a reliable place to begin. The most valuable design decisions were the ones that made definitions explicit, preserved the supporting record, distinguished status from outcome, and made ownership visible.</p></div><ul><li><b>Traceability over decoration</b><span>A metric needs a route back to the record.</span></li><li><b>Exceptions over averages</b><span>Operational value often lives in the tail.</span></li><li><b>Ownership over alerts</b><span>A flag without a next action is only noise.</span></li></ul></section>
+</main>
+<footer><span>ATLAS case study · Alexander Zaghloul</span><a href="../">Return to portfolio ↑</a></footer><div id="toast"></div><script src="app.js"></script>
+</body></html>
