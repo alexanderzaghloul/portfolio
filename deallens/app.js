@@ -9,6 +9,16 @@ function draw(){const r=result;
  const baseline=DealLens.calculate(DealLens.defaults);
  const delta=(r.accretion-baseline.accretion)*100;
  const gap=r.breakEven===null?null:r.realizedSynergies-r.breakEven;
+ const stockShare=r.stock/r.equity,cashShare=r.cash/r.equity,debtShare=r.debt/r.equity;
+ const tape={
+  tapeEv:'$'+money(r.ev)+'m',
+  tapeEps:pct(r.accretion),
+  tapeFunding:[stockShare,cashShare,debtShare].map(v=>Math.round(v*100)).join(' / '),
+  tapeBreakEven:r.breakEven===null?'UNAVAILABLE':'$'+money(r.breakEven)+'m',
+  tapeState:r.accretion<0?'DILUTION FLAG':gap!==null&&gap<0?'SYNERGY GAP':'SCREEN POSITIVE'
+ };
+ for(const [id,value] of Object.entries(tape)){const node=document.getElementById(id);if(node)node.textContent=value}
+ if(document.documentElement)document.documentElement.dataset.signal=r.accretion<0?'negative':'positive';
  document.getElementById('snapshot').innerHTML=`<div class="scenario-line"><b class="${r.accretion>=0?'positive-text':'negative-text'}">${r.accretion>=0?'Recurring EPS accretive':'Recurring EPS dilutive'}</b><span>${delta>=0?'+':''}${delta.toFixed(2)} percentage points vs. default example</span></div><p class="small">${gap===null?'Synergy break-even unavailable at a 100% tax rate.':gap>=0?'Realized synergies exceed the nonnegative EPS-neutral threshold by $'+money(gap)+'m.':'An additional $'+money(-gap)+'m in realized pre-tax synergies is needed for recurring EPS neutrality.'} Review year-one fees and financing capacity separately.</p>`;
  const epsItems=[['Standalone buyer',r.standaloneEPS],['Recurring pro forma',r.eps],['Year-one pro forma',r.yearOneEPS]];
  const scale=Math.max(...epsItems.map(x=>Math.abs(x[1])),0.01);
@@ -26,3 +36,4 @@ document.getElementById('loadButton').onclick=()=>document.getElementById('load'
 document.getElementById('load').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{if(f.size>100000)throw Error('Assumption file exceeds 100KB.');let data=JSON.parse(await f.text());if(data.schemaVersion!==1)throw Error('Unsupported schema version.');DealLens.calculate(data.assumptions);set(data.assumptions)}catch(err){document.getElementById('error').textContent='Import rejected: '+err.message;document.getElementById('error').hidden=false}e.target.value=''};
 document.getElementById('csv').onclick=()=>download('deallens-earnings-bridge.csv','Component,USD millions\n'+result.rows.map(([n,v])=>`"${n}",${v.toFixed(6)}`).join('\n'),'text/csv');
 document.getElementById('memo').onclick=()=>download('deallens-deal-memo.txt',`DEALLENS — HYPOTHETICAL ACQUISITION REVIEW\nGenerated ${new Date().toISOString()}\n\nEquity consideration: $${money(result.equity)}m\nEnterprise value: $${money(result.ev)}m (${money(result.multiple)}x EBITDA)\nFunding: stock $${money(result.stock)}m / cash $${money(result.cash)}m / new debt $${money(result.debt)}m\nRecurring EPS impact: ${pct(result.accretion)}\nYear-one EPS impact: ${pct(result.yearOneAccretion)}\nRequired realized synergies for EPS neutrality: ${result.breakEven===null?'Unavailable':'$'+money(result.breakEven)+'m'}\n\nDILIGENCE\nValidate financing capacity, synergy timing, integration costs and standalone value. EPS accretion does not establish value creation.\n\nASSUMPTIONS\n${JSON.stringify(current,null,2)}\n\nLIMITATIONS\nEducational prototype with hypothetical data. Full-year model; target debt and cash retained. Fees paid separately from buyer cash, expensed without tax benefit; financing costs on fees omitted. No full purchase accounting, refinancing, cash flow model, market data or investment advice.\n`,'text/plain');refresh();
+

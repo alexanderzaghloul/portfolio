@@ -12,7 +12,7 @@ I build decision systems across finance, data, privacy, and interactive software
 |---|---|---|
 | [ATLAS Public Lab](./atlas-case-study/) | KPI reporting, receivables, resolution ownership, PayPath, reconciliation, local import, and controls | Interactive multi-workspace app |
 | [KPI Workbench](./kpi-workbench/) | Local CSV validation, distributions, exceptions, follow-up, and exports | Live dashboard |
-| [DealLens](./deallens/) | Acquisition pricing, financing, EPS, and execution risk | 25-case live model |
+| [DealLens](./deallens/) | Acquisition underwriting, financing, EPS, break-even synergies, and execution risk | 25 live cases · 13 checks |
 | [Covenant//Pulse](./covenant-pulse/) | EBITDA, debt, rate, and covenant stress | 25-case breach map |
 | [Proofline](./proofline/) | KPI lineage, controls, and exception routing | Interactive evidence system |
 | [Memo//Zero](./memo-zero/) | Evidence-weighted investment judgment | Dynamic memo builder |

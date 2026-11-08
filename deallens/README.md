@@ -1,6 +1,6 @@
 # DealLens
 
-An educational M&A acquisition-analysis prototype by Alexander Zaghloul. All example inputs are hypothetical, not AXA data or a real transaction. Calculations, assumptions and test cases are exposed for review.
+An educational M&A acquisition-underwriting system by Alexander Zaghloul. All example inputs are hypothetical, not AXA data or a real transaction. Calculations, assumptions, and test cases are exposed for review.
 
 ## Run
 
@@ -44,7 +44,7 @@ This is a transparent teaching model, not investment advice or a production valu
 
 ## Interface
 
-Responsive analyst workspace with a live scenario snapshot, funding composition, signed EPS comparison, earnings bridge, sensitivity heatmap and printable analysis. The snapshot compares recurring accretion against the fixed default example, not a market benchmark. All calculations run locally in the browser.
+Responsive investment-committee command center with a live deal tape, editable input deck, scenario signal, funding composition, signed EPS comparison, earnings bridge, sensitivity heatmap, diligence queue, and printable analysis. The snapshot compares recurring accretion against the fixed default example, not a market benchmark. All calculations run locally in the browser.
 
 ## Project structure
 
@@ -58,3 +58,4 @@ Responsive analyst workspace with a live scenario snapshot, funding composition,
 ## Scope
 
 Independent portfolio project by Alexander Zaghloul. This is a hypothetical modeling exercise, not a completed transaction or client advisory engagement.
+
