@@ -1,5 +1,176 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Interactive concept prototype by Alexander Zaghloul."><title>Interactive Concept</title><link rel="stylesheet" href="../concepts.css"></head>
-<body><header class="top"><a class="brand" href="../"><span class="brand-mark" id="mark"></span><span><b id="name"></b><small id="type"></small></span></a><div class="top-links"><a href="../">All projects</a><a href="https://github.com/alexanderzaghloul/portfolio" target="_blank" rel="noreferrer">Source ↗</a></div></header>
-<main><section class="hero"><div><p class="eyebrow">INTERACTIVE CONCEPT / SYNTHETIC DATA</p><h1 id="headline"></h1><p id="summary"></p></div><div class="disclaimer"><b>Prototype boundary</b>This is a portfolio concept—not a production service, broker, decision engine, or live account. Every name, score, value, and event is synthetic and illustrative.</div></section>
-<section class="workspace"><div class="workspace-bar"><span id="workspace-name"></span><div class="actions"><button id="reset">Reset</button><button id="export">Export snapshot</button><button class="primary" id="run">Run scenario</button></div></div><div class="metrics" id="metrics"></div><div class="dashboard"><div class="chart-panel"><div class="panel-title"><h2>Scenario trace</h2><span>MODELED / 12 PERIODS</span></div><div class="chart"><svg viewBox="0 0 600 220" preserveAspectRatio="none"><defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".28"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs><g class="chart-grid"><line x1="0" y1="40" x2="600" y2="40"/><line x1="0" y1="95" x2="600" y2="95"/><line x1="0" y1="150" x2="600" y2="150"/><line x1="0" y1="205" x2="600" y2="205"/></g><path class="chart-area" id="area"></path><path class="chart-line" id="line"></path></svg></div><div class="axis"><span>P01</span><span>P04</span><span>P08</span><span>P12</span></div></div><div class="control-panel"><div class="panel-title"><h2>Scenario controls</h2><span>LOCAL SIMULATION</span></div><label><div class="control-label"><span>Signal intensity</span><span class="range-value"></span></div><input type="range" min="10" max="100" value="65"></label><label><div class="control-label"><span>Control coverage</span><span class="range-value"></span></div><input type="range" min="10" max="100" value="72"></label><p class="scenario-note" id="scenario-note"></p></div></div><div class="table-panel"><div class="panel-title"><h2>Evidence and control register</h2><span>CLICK RUN TO RECOMPUTE</span></div><div style="overflow:auto"><table><thead><tr><th>Item</th><th>Class</th><th>Score</th><th>State</th><th>Next action</th></tr></thead><tbody id="rows"></tbody></table></div></div></section><div class="bottom-note"><span>Designed and coded by Alexander Zaghloul</span><span>No external requests · No telemetry · No real records</span></div></main><div class="toast" id="toast"></div><script src="config.js"></script><script src="../concept.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070807" />
+  <meta name="description" content="DataBearer turns your fragmented digital footprint into a personal-data portfolio." />
+  <title>DataBearer — Your data is an asset.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="DataBearer home">
+      <svg class="brand-mark" viewBox="0 0 72 80" role="img" aria-label="DataBearer bear shield">
+        <path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/>
+        <path d="M26 31h20M26 42h20M29 53l7 5 7-5"/>
+        <circle cx="25" cy="25" r="2"/><circle cx="47" cy="25" r="2"/>
+      </svg>
+      <span>DATABEARER</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#ledger">Consent</a>
+      <a href="#principles">Principles</a>
+    </nav>
+    <a class="nav-action" href="#prototype">Open prototype <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE PERSONAL DATA PORTFOLIO</p>
+        <h1>Your data is an asset.<br><em>Manage it like one.</em></h1>
+        <p class="hero-intro">DataBearer turns a fragmented digital footprint into one legible portfolio—showing who holds your information, what changed, where you are exposed, and what you can control.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#prototype">Explore the prototype</a>
+          <a class="text-link" href="#thesis">Read the thesis <span>↓</span></a>
+        </div>
+        <div class="prototype-note"><span></span> Working prototype · Synthetic information · Modeled estimates</div>
+      </div>
+
+      <div class="hero-object" aria-label="Illustrative DataBearer portfolio card">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="passport">
+          <div class="passport-head">
+            <div class="mini-brand">
+              <svg viewBox="0 0 72 80" aria-hidden="true"><path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/><path d="M26 31h20M26 42h20M29 53l7 5 7-5"/></svg>
+              <span>DATA STATEMENT</span>
+            </div>
+            <span>OCT 2026</span>
+          </div>
+          <div class="passport-value"><span>MODELED PORTFOLIO VALUE</span><strong id="heroValue">$8,310</strong><small>Illustrative estimate</small></div>
+          <div class="sparkline" aria-hidden="true"><svg viewBox="0 0 520 110" preserveAspectRatio="none"><path class="area" d="M0 95C60 86 88 91 132 74s78-9 120-34 84 6 132-17 91-7 136-18v105H0Z"/><path class="line" d="M0 95C60 86 88 91 132 74s78-9 120-34 84 6 132-17 91-7 136-18"/></svg></div>
+          <div class="passport-metrics">
+            <div><span>CONTROL</span><strong id="heroControl">61</strong><small>/100</small></div>
+            <div><span>COUNTERPARTIES</span><strong id="heroCount">10</strong></div>
+            <div><span>HIGH RISK</span><strong id="heroRisk">3</strong></div>
+          </div>
+          <div class="passport-footer"><span>DB—A7X9</span><span>PRIVATE BY DESIGN</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="DataBearer concepts">
+      <div><span>SEE</span> your footprint</div><i></i><div><span>CONTROL</span> permissions</div><i></i><div><span>DOCUMENT</span> consent</div><i></i><div><span>ACT</span> with confidence</div>
+    </section>
+
+    <section class="thesis" id="thesis">
+      <div class="section-index">01 / THESIS</div>
+      <div class="thesis-copy">
+        <p>Financial products give people holdings, counterparties, statements, risk metrics, and controls.</p>
+        <h2>Personal data is economically important and widely distributed—yet people rarely receive an equivalent system for understanding the whole relationship.</h2>
+      </div>
+      <aside><span>THE CORE QUESTION</span><p>What if you managed your personal data like an investment portfolio?</p></aside>
+    </section>
+
+    <section class="product" id="portfolio">
+      <div class="section-heading">
+        <div class="section-index">02 / PRODUCT</div>
+        <div><p class="eyebrow">A FINANCE-NATIVE INTERACTION MODEL</p><h2>One interface for the entire relationship.</h2></div>
+      </div>
+      <div class="product-rail">
+        <article><b>01</b><h3>Portfolio</h3><p>Counterparties, categories, modeled exposure, concentration, and risk in one coherent view.</p></article>
+        <article><b>02</b><h3>Controls</h3><p>Turn deletion, export, opt-out, and permission changes into trackable actions—not scattered settings.</p></article>
+        <article><b>03</b><h3>Statement</h3><p>A recurring record of changes, new relationships, and control actions across your footprint.</p></article>
+        <article><b>04</b><h3>Consent Ledger</h3><p>Permission as a transaction: information, purpose, duration, state, and history.</p></article>
+      </div>
+    </section>
+
+    <section class="prototype" id="prototype">
+      <div class="prototype-title">
+        <div><div class="section-index">03 / LIVE PROTOTYPE</div><h2>Reduce exposure.<br>See the portfolio move.</h2></div>
+        <p>Use the controls below to model a permission reduction. Values are synthetic and exist to demonstrate product behavior—not realizable cash value.</p>
+      </div>
+
+      <div class="workbench">
+        <aside class="workbench-nav">
+          <div class="workbench-brand"><svg viewBox="0 0 72 80" aria-hidden="true"><path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/><path d="M26 31h20M26 42h20M29 53l7 5 7-5"/></svg><span>DATABEARER</span></div>
+          <button class="active">Overview</button><button>Holdings</button><button>Exposure</button><button>Consent ledger</button><button>Statements</button>
+          <div class="identity"><span>AZ</span><div>Alexander Z.<small>Prototype profile</small></div></div>
+        </aside>
+        <div class="workbench-main">
+          <header><div><span>Portfolio overview</span><small>Personal data, organized like capital.</small></div><button id="exportStatement">Export statement ↓</button></header>
+          <div class="metric-row">
+            <div><span>MODELED VALUE</span><strong id="modeledValue">$8,310</strong><small id="valueDelta">Baseline estimate</small></div>
+            <div><span>CONTROL SCORE</span><strong><i id="controlScore">61</i><small>/100</small></strong><small id="controlLabel">Moderate</small></div>
+            <div><span>EXPOSURE</span><strong id="exposureLabel">High</strong><small id="riskCount">3 relationships</small></div>
+            <div><span>ACTIVE CONSENTS</span><strong id="consentCount">10</strong><small>Illustrative</small></div>
+          </div>
+          <div class="workbench-grid">
+            <div class="holdings-panel">
+              <div class="panel-head"><span>COUNTERPARTIES</span><small>Choose a relationship to reduce</small></div>
+              <div id="counterparties" class="counterparties"></div>
+            </div>
+            <div class="action-panel">
+              <div class="action-seal"><svg viewBox="0 0 72 80" aria-hidden="true"><path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/><path d="M26 31h20M26 42h20M29 53l7 5 7-5"/></svg></div>
+              <span>NEXT BEST ACTION</span>
+              <h3 id="actionTitle">Review Google permissions</h3>
+              <p id="actionCopy">Reduce location history and ad-personalization access to improve your control score.</p>
+              <button id="reduceButton">Model permission reduction</button>
+              <small id="actionStatus">No production action will be taken.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ledger" id="ledger">
+      <div class="ledger-copy"><div class="section-index">04 / CONSENT LEDGER</div><h2>Permission should leave a receipt.</h2><p>Every grant, limitation, expiration, and revocation belongs in an understandable history—not buried across dozens of privacy menus.</p></div>
+      <div class="ledger-table" role="table" aria-label="Illustrative consent ledger">
+        <div class="ledger-row ledger-head" role="row"><span>COUNTERPARTY</span><span>PURPOSE</span><span>DURATION</span><span>STATE</span></div>
+        <div class="ledger-row" role="row"><strong>Google</strong><span>Services & personalization</span><span>1 year</span><em class="limited">Limited</em></div>
+        <div class="ledger-row" role="row"><strong>Amazon</strong><span>Order fulfillment</span><span>1 year</span><em class="active">Active</em></div>
+        <div class="ledger-row" role="row"><strong>Meta</strong><span>Ad personalization</span><span>Revocable</span><em class="review">Review</em></div>
+        <div class="ledger-row" role="row"><strong>Apple</strong><span>Device services</span><span>6 months</span><em class="active">Active</em></div>
+      </div>
+    </section>
+
+    <section class="statement-section">
+      <div class="statement-card">
+        <div class="statement-top"><div class="mini-brand"><svg viewBox="0 0 72 80"><path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/><path d="M26 31h20M26 42h20M29 53l7 5 7-5"/></svg><span>MONTHLY DATA STATEMENT</span></div><span>PRIVATE DOCUMENT</span></div>
+        <div class="statement-body"><div><span>THIS MONTH</span><strong>2 new relationships</strong></div><div><span>CONTROL ACTIONS</span><strong>4 completed</strong></div><div><span>EXPOSURE CHANGE</span><strong>−8.4%</strong></div></div>
+        <div class="statement-code">DB / STATEMENT / 2026—10</div>
+      </div>
+      <div class="statement-copy"><div class="section-index">05 / STATEMENT</div><h2>Your footprint changes.<br>Your record should too.</h2><p>A monthly statement makes new counterparties, permission changes, and completed privacy actions visible at a glance.</p></div>
+    </section>
+
+    <section class="principles" id="principles">
+      <div class="section-heading"><div class="section-index">06 / TRUST</div><div><p class="eyebrow">A PRIVACY COMPANY CANNOT AFFORD AMBIGUOUS INCENTIVES</p><h2>Trust is the product.</h2></div></div>
+      <div class="principle-list">
+        <div><b>01</b><h3>Collect less</h3><p>Minimize the sensitive information DataBearer itself must store.</p></div>
+        <div><b>02</b><h3>Purpose visibility</h3><p>Every consent request states the information, counterparty, purpose, and duration.</p></div>
+        <div><b>03</b><h3>Revocation first</h3><p>Grants and revocations become clear, auditable events—not hidden settings.</p></div>
+        <div><b>04</b><h3>No false precision</h3><p>Modeled estimates show methodology, uncertainty, and limitations.</p></div>
+      </div>
+    </section>
+
+    <section class="founder">
+      <div><p class="eyebrow">FOUNDER-LED ACROSS PRODUCT, FINANCE, DATA & STRATEGY</p><h2>Built to make digital power legible.</h2></div>
+      <div class="founder-card"><span>FOUNDER / PRODUCT & STRATEGY</span><strong>Alexander Zaghloul</strong><p>DePaul University · Philosophy, Finance & Data Analysis</p></div>
+      <div class="careers-card"><span>FOUNDING TEAM</span><strong>Founding Product Engineer</strong><p>Privacy infrastructure, secure integrations, and production systems.</p><a href="mailto:alexanderzaghloul3@gmail.com?subject=DataBearer%20Founding%20Product%20Engineer">Start a conversation ↗</a></div>
+    </section>
+
+    <section class="closing">
+      <svg viewBox="0 0 72 80" aria-hidden="true"><path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/><path d="M26 31h20M26 42h20M29 53l7 5 7-5"/></svg>
+      <p>Your data is already working.</p><h2>Make sure it works for you.</h2>
+      <a class="button primary" href="#prototype">Explore DataBearer</a>
+    </section>
+  </main>
+
+  <footer><div class="brand"><svg class="brand-mark" viewBox="0 0 72 80"><path d="M12 18 24 8l12 7 12-7 12 10-4 40-20 14-20-14Z"/><path d="M26 31h20M26 42h20M29 53l7 5 7-5"/></svg><span>DATABEARER</span></div><p>Prototype © 2026 Alexander Zaghloul</p><p>Modeled estimates · Synthetic information</p></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
